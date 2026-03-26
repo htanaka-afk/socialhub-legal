@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SocialHub - TikTok Auth</title>
+    <style>body{font-family:system-ui;display:flex;justify-content:center;align-items:center;height:100vh;margin:0;background:#1a1a2e;color:#fff}
+    .loader{text-align:center}.spinner{border:3px solid #333;border-top:3px solid #6366f1;border-radius:50%;width:40px;height:40px;animation:spin 1s linear infinite;margin:0 auto 16px}
+    @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}</style>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+        <p>TikTok認証を処理中...</p>
+        <p style="font-size:12px;color:#888">自動的にリダイレクトされます</p>
+    </div>
+    <script>
+        // TikTokからのコールバックパラメータをローカルバックエンドに転送
+        const params = window.location.search;
+        const localBackend = 'http://192.168.2.98:8000/api/tk/auth/callback';
+        window.location.href = localBackend + params;
+    </script>
+</body>
+</html>
