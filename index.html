@@ -1,1 +1,265 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>SocialHub</title></head><body><h1>SocialHub</h1><p>Internal social media analytics platform by ULTIMATE LIFE Inc.</p><ul><li><a href="privacy-policy.html">Privacy Policy</a></li><li><a href="terms-of-service.html">Terms of Service</a></li></ul></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialHub - Social Media Analytics Platform</title>
+    <meta name="description" content="SocialHub is an enterprise social media analytics platform that integrates X, Instagram, Threads, and TikTok to provide comprehensive engagement metrics and insights.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: #e0e0e0; background: #0a0a1a; line-height: 1.6; }
+        
+        /* Header */
+        .header { background: rgba(10,10,26,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(99,102,241,0.2); padding: 16px 0; position: fixed; top: 0; width: 100%; z-index: 100; }
+        .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: 800; background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 24px; }
+        .nav-links a { color: #a0a0b0; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #fff; }
+        
+        /* Hero */
+        .hero { padding: 140px 24px 80px; text-align: center; background: radial-gradient(ellipse at top, rgba(99,102,241,0.15) 0%, transparent 60%); }
+        .hero h1 { font-size: 52px; font-weight: 800; margin-bottom: 20px; background: linear-gradient(135deg, #fff, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 20px; color: #8888a0; max-width: 600px; margin: 0 auto 40px; }
+        .badge-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+        .badge { background: rgba(99,102,241,0.15); border: 1px solid rgba(99,102,241,0.3); border-radius: 20px; padding: 6px 16px; font-size: 13px; color: #a78bfa; font-weight: 500; }
+        
+        /* Sections */
+        .section { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+        .section-title { font-size: 36px; font-weight: 700; text-align: center; margin-bottom: 16px; }
+        .section-subtitle { font-size: 16px; color: #8888a0; text-align: center; margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        /* Features */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .feature-card { background: rgba(20,20,40,0.8); border: 1px solid rgba(99,102,241,0.15); border-radius: 16px; padding: 32px; transition: transform 0.3s, border-color 0.3s; }
+        .feature-card:hover { transform: translateY(-4px); border-color: rgba(99,102,241,0.4); }
+        .feature-icon { font-size: 36px; margin-bottom: 16px; }
+        .feature-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+        .feature-card p { font-size: 14px; color: #8888a0; }
+        
+        /* Screenshots */
+        .screenshots { padding: 40px 0; }
+        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 24px; }
+        .screenshot-item { background: rgba(20,20,40,0.8); border: 1px solid rgba(99,102,241,0.15); border-radius: 16px; overflow: hidden; }
+        .screenshot-item img { width: 100%; display: block; }
+        .screenshot-caption { padding: 16px 20px; font-size: 14px; font-weight: 500; }
+        .screenshot-caption span { color: #8888a0; font-weight: 400; display: block; margin-top: 4px; font-size: 13px; }
+        
+        /* Integration */
+        .integration-section { background: rgba(20,20,40,0.5); border-top: 1px solid rgba(99,102,241,0.1); border-bottom: 1px solid rgba(99,102,241,0.1); }
+        .integration-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+        .integration-item { padding: 32px 16px; }
+        .integration-item .icon { font-size: 48px; margin-bottom: 12px; }
+        .integration-item h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+        .integration-item .status { font-size: 12px; color: #22c55e; font-weight: 500; }
+        .integration-item .status.upcoming { color: #f59e0b; }
+        
+        /* TikTok Section */
+        .tiktok-section { background: linear-gradient(135deg, rgba(99,102,241,0.05), rgba(236,72,153,0.05)); }
+        .tiktok-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .tiktok-text h3 { font-size: 28px; font-weight: 700; margin-bottom: 16px; }
+        .tiktok-text p { color: #8888a0; margin-bottom: 16px; }
+        .scope-list { list-style: none; }
+        .scope-list li { padding: 8px 0; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+        .scope-list li::before { content: "✓"; color: #22c55e; font-weight: 700; }
+        .tiktok-flow { background: rgba(20,20,40,0.8); border: 1px solid rgba(99,102,241,0.2); border-radius: 16px; padding: 32px; }
+        .flow-step { display: flex; gap: 16px; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .flow-step:last-child { border: none; }
+        .step-num { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+        .step-text { font-size: 14px; }
+        .step-text strong { display: block; margin-bottom: 2px; }
+        .step-text span { color: #8888a0; font-size: 13px; }
+        
+        /* Footer */
+        .footer { padding: 40px 24px; text-align: center; border-top: 1px solid rgba(99,102,241,0.1); }
+        .footer p { font-size: 13px; color: #555; }
+        .footer a { color: #6366f1; text-decoration: none; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .screenshot-grid { grid-template-columns: 1fr; }
+            .integration-grid { grid-template-columns: repeat(2, 1fr); }
+            .tiktok-content { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">📊 SocialHub</div>
+        <nav class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#platforms">Platforms</a>
+            <a href="#tiktok">TikTok Integration</a>
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Social Media Analytics<br>for Your Business</h1>
+    <p>SocialHub is an enterprise analytics platform that unifies data from X, Instagram, Threads, and TikTok into a single dashboard with real-time engagement metrics.</p>
+    <div class="badge-row">
+        <span class="badge">Multi-Platform Analytics</span>
+        <span class="badge">Real-time Metrics</span>
+        <span class="badge">OAuth 2.0 Integration</span>
+        <span class="badge">Enterprise Ready</span>
+    </div>
+</section>
+
+<section class="section" id="features">
+    <h2 class="section-title">Core Features</h2>
+    <p class="section-subtitle">Monitor, analyze, and optimize your social media performance from a unified dashboard.</p>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Dashboard Analytics</h3>
+            <p>Real-time KPIs including followers, reach, impressions, and engagement rates across all connected platforms.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📝</div>
+            <h3>Post Performance</h3>
+            <p>Track individual post metrics with views, likes, comments, shares, and calculated engagement scores.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3>Secure OAuth Connection</h3>
+            <p>Connect accounts via platform-native OAuth 2.0 flows with automatic token refresh and encrypted storage.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏷️</div>
+            <h3>Content Tagging</h3>
+            <p>Organize posts with custom tags and categories. Filter and compare performance by content type.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Trend Analysis</h3>
+            <p>Follower growth trends, engagement rate changes, and performance comparisons over customizable date ranges.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3>Account Management</h3>
+            <p>Manage multiple brand accounts, configure auto-fetch intervals, and control data synchronization settings.</p>
+        </div>
+    </div>
+</section>
+
+<section class="integration-section" id="platforms">
+    <div class="section" style="padding-bottom: 40px;">
+        <h2 class="section-title">Supported Platforms</h2>
+        <p class="section-subtitle">Connect all your social media accounts and view unified analytics.</p>
+        <div class="integration-grid">
+            <div class="integration-item">
+                <div class="icon">𝕏</div>
+                <h4>X (Twitter)</h4>
+                <div class="status">● Connected</div>
+            </div>
+            <div class="integration-item">
+                <div class="icon">📸</div>
+                <h4>Instagram</h4>
+                <div class="status">● Connected</div>
+            </div>
+            <div class="integration-item">
+                <div class="icon">🧵</div>
+                <h4>Threads</h4>
+                <div class="status">● Connected</div>
+            </div>
+            <div class="integration-item">
+                <div class="icon">🎵</div>
+                <h4>TikTok</h4>
+                <div class="status upcoming">◉ In Progress</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section screenshots">
+    <h2 class="section-title">Platform Screenshots</h2>
+    <p class="section-subtitle">See SocialHub in action across different platforms and features.</p>
+    <div class="screenshot-grid">
+        <div class="screenshot-item">
+            <img src="images/x_dashboard.png" alt="X Dashboard" loading="lazy">
+            <div class="screenshot-caption">X (Twitter) Dashboard<span>Real-time follower metrics, engagement rates, and KPI cards</span></div>
+        </div>
+        <div class="screenshot-item">
+            <img src="images/ig_dashboard.png" alt="Instagram Dashboard" loading="lazy">
+            <div class="screenshot-caption">Instagram Dashboard<span>Follower trends, reach, impressions, and content performance</span></div>
+        </div>
+        <div class="screenshot-item">
+            <img src="images/ig_feed.png" alt="Instagram Feed Analysis" loading="lazy">
+            <div class="screenshot-caption">Instagram Feed Analysis<span>Post-level metrics with engagement scoring and filtering</span></div>
+        </div>
+        <div class="screenshot-item">
+            <img src="images/th_dashboard.png" alt="Threads Dashboard" loading="lazy">
+            <div class="screenshot-caption">Threads Dashboard<span>Threads-specific KPIs and follower analytics</span></div>
+        </div>
+        <div class="screenshot-item">
+            <img src="images/th_posts.png" alt="Threads Post Analysis" loading="lazy">
+            <div class="screenshot-caption">Threads Post Analysis<span>Individual thread performance with views, likes, and reposts</span></div>
+        </div>
+        <div class="screenshot-item">
+            <img src="images/settings.png" alt="Settings & Account Management" loading="lazy">
+            <div class="screenshot-caption">Settings & Account Management<span>OAuth connections, auto-fetch configuration, and platform status</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="tiktok-section" id="tiktok">
+    <div class="section">
+        <h2 class="section-title">TikTok Integration</h2>
+        <p class="section-subtitle">Extending SocialHub with TikTok analytics using Login Kit and Display API.</p>
+        <div class="tiktok-content">
+            <div class="tiktok-text">
+                <h3>How We Use TikTok API</h3>
+                <p>SocialHub integrates TikTok's Login Kit and Display API to provide analytics for our company's TikTok Business Account. All data is used exclusively for internal business analytics.</p>
+                <h4 style="margin: 20px 0 12px; font-size: 16px;">Requested Scopes</h4>
+                <ul class="scope-list">
+                    <li><strong>user.info.basic</strong> — Account profile and avatar</li>
+                    <li><strong>user.info.stats</strong> — Follower count and statistics</li>
+                    <li><strong>video.list</strong> — Published video list with metrics</li>
+                </ul>
+                <h4 style="margin: 20px 0 12px; font-size: 16px;">Data Usage</h4>
+                <ul class="scope-list">
+                    <li>Display follower trends on dashboard</li>
+                    <li>Track video performance (views, likes, shares)</li>
+                    <li>Calculate engagement scores for content analysis</li>
+                    <li>No data is shared with third parties</li>
+                </ul>
+            </div>
+            <div class="tiktok-flow">
+                <h4 style="margin-bottom: 16px; font-size: 16px;">Integration Flow</h4>
+                <div class="flow-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Login Kit — OAuth 2.0</strong><span>User authorizes SocialHub via TikTok's OAuth flow with PKCE</span></div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Token Exchange</strong><span>Auth code exchanged for access_token (24h) and refresh_token (1 year)</span></div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Fetch User Info</strong><span>Retrieve profile data and follower statistics via Display API</span></div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>Fetch Video List</strong><span>Get published videos with view count, likes, comments, shares</span></div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">5</div>
+                    <div class="step-text"><strong>Display Analytics</strong><span>Render TikTok data in SocialHub dashboard alongside other platforms</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2026 ULTIMATE LIFE Inc. — SocialHub Analytics Platform</p>
+    <p style="margin-top: 8px;"><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-service.html">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>
